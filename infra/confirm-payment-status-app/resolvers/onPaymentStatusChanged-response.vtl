@@ -1,0 +1,12 @@
+#if($ctx.error)
+  $util.error($ctx.error.message, $ctx.error.type)
+#end
+
+#if(!$util.isNull($ctx.result) && !$util.isNull($ctx.result.status))
+  $util.toJson($ctx.result)
+#else
+  #set($result = {})
+  #set($result.reservation_id = $ctx.args.reservation_id)
+  #set($result.status = "UNKNOWN") ## デフォルト値を設定
+  $util.toJson($result)
+#end
