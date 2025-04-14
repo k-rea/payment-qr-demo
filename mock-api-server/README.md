@@ -28,3 +28,8 @@ base64 -w 0 public.pem
 ```env
 APPSYNC_API_URL=XXXXXXXXXXXXXXXXXXXXXX
 ```
+
+## サーバー起動
+```shell
+npm start
+```
