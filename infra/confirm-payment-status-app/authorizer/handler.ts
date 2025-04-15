@@ -8,7 +8,7 @@ export const handler = async (event: { authorizationToken: string; headers: { [k
   const token = event.authorizationToken;
   console.log("トークン:", token);
 
-  if (!token) throw new Error('Unauthorized');
+  if (!token) throw new Error(`'Unauthorized: トークンがありません, ${token}'`);
 
   try {
     const decoded = jwt.verify(token, publicKey, { algorithms: ['RS256'] }) as {
@@ -30,6 +30,6 @@ export const handler = async (event: { authorizationToken: string; headers: { [k
     };
   } catch (err) {
     console.error('JWT verify failed', err);
-    throw new Error('Unauthorized');
+    throw new Error(`'Unauthorized: トークンの検証に失敗しました, ${JSON.stringify(event)}'`);
   }
 };
