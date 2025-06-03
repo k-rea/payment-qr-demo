@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd authorizer && npm install && npm run build",
+    "remove": "npx serverless remove",
     "deploy": "npm run build && npx serverless deploy"
   },
   "keywords": [],
